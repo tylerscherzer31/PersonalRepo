@@ -15,7 +15,7 @@ public class MouseControls : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        print(Input.GetAxis("Horizontal"));
+        
         if(Input.GetKeyDown(KeyCode.LeftArrow))
         {
             
@@ -50,5 +50,9 @@ public class MouseControls : MonoBehaviour
         {
             reset = true;
         }
+    }
+    private void OnTriggerEnter(Collider other)
+    {
+        print(other.gameObject.tag);
     }
 }
