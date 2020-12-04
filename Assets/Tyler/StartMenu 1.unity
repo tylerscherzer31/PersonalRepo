@@ -615,7 +615,7 @@ GameObject:
   - component: {fileID: 683113537}
   - component: {fileID: 683113536}
   m_Layer: 5
-  m_Name: Image
+  m_Name: BackGroundImage
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1127,7 +1127,7 @@ GameObject:
   - component: {fileID: 2071603399}
   - component: {fileID: 2071603398}
   m_Layer: 5
-  m_Name: Image
+  m_Name: MouseHunt
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
