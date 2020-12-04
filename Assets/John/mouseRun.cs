@@ -5,17 +5,26 @@ using UnityEngine;
 public class mouseRun : MonoBehaviour
 {
     private Animator m_animator;
+    private bool gameStart = false;
     // Start is called before the first frame update
     void Start()
     {
         m_animator = GetComponent<Animator>();
-        m_animator.SetInteger("AnimIndex", 1);
-        m_animator.SetTrigger("Next");
+       
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        if(GameState.mode == GameState.GameMode.playing && !gameStart)
+        {
+            transform.rotation = Quaternion.Euler(new Vector3(0, 0, 0));
+            m_animator.SetInteger("AnimIndex", 1);
+            m_animator.SetTrigger("Next");
+            gameStart = true;
+        }else if(GameState.mode == GameState.GameMode.dead)
+        {
+            m_animator.SetTrigger("dead");
+        }
     }
 }

@@ -7,18 +7,25 @@ public class MouseControls : MonoBehaviour
     public GameObject[] positions;
     public bool reset = true;
     public int positionIndex = 1;
+    public bool gameStart = false;
     void Start()
     {
-        transform.position = positions[positionIndex].transform.position;
+        
     }
 
     // Update is called once per frame
     void Update()
     {
-        
-        if(Input.GetKeyDown(KeyCode.LeftArrow))
+        if(GameState.mode == GameState.GameMode.playing && !gameStart)
         {
-            
+            transform.position = positions[positionIndex].transform.position;
+            gameStart = true;
+        }
+        else if(GameState.mode == GameState.GameMode.playing)
+        {
+            if (Input.GetKeyDown(KeyCode.LeftArrow))
+            {
+
                 if (positionIndex - 1 > -1)
                 {
                     positionIndex -= 1;
@@ -27,13 +34,13 @@ public class MouseControls : MonoBehaviour
 
                 }
 
-            
 
 
-        }
-        else if(Input.GetKeyDown(KeyCode.RightArrow))
-        {
-            
+
+            }
+            else if (Input.GetKeyDown(KeyCode.RightArrow))
+            {
+
                 if (positionIndex + 1 < positions.Length)
                 {
                     positionIndex += 1;
@@ -41,18 +48,25 @@ public class MouseControls : MonoBehaviour
                     reset = false;
 
                 }
-            
-            
-                
-            
+
+
+
+
+            }
+            else
+            {
+                reset = true;
+            }
         }
-        else
-        {
-            reset = true;
-        }
+        
+        
     }
     private void OnTriggerEnter(Collider other)
     {
         print(other.gameObject.tag);
+        if(other.gameObject.tag == "cat")
+        {
+            GameState.mode = GameState.GameMode.dead;
+        }
     }
 }

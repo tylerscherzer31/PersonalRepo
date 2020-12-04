@@ -16,11 +16,15 @@ public class GamePlay : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Time.time > time + 2)
+        if(GameState.mode == GameState.GameMode.playing)
         {
-            time = Time.time;
-            var rand = Random.Range(0, positions.Length);
-            Instantiate(cat, positions[rand].transform.position, Quaternion.Euler(0,180,0));
+            if (Time.time > time + 2)
+            {
+                time = Time.time;
+                var rand = Random.Range(0, positions.Length);
+                Instantiate(cat, positions[rand].transform.position, Quaternion.Euler(0, 180, 0));
+            }
         }
+        
     }
 }
