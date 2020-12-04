@@ -7,6 +7,7 @@ using UnityEngine.UI;
 public class UIManager : MonoBehaviour
 {
     public GameObject pauseScreen;
+    public GameObject beginningScreen;
     public Text score;
    
     void Start()
@@ -16,8 +17,17 @@ public class UIManager : MonoBehaviour
 
     void Update()
     {
-        GameState.gameScore += Time.deltaTime; 
-        score.text = "Score: " + GameState.gameScore.ToString("F2") + " meters";
+        if (GameState.mode == GameState.GameMode.idle && Input.GetMouseButtonDown(0))
+        {
+            beginningScreen.SetActive(false);
+            GameState.mode = GameState.GameMode.playing;
+        }
+
+        if (GameState.mode == GameState.GameMode.playing)
+        {
+            GameState.gameScore += Time.deltaTime;
+            score.text = "Score: " + GameState.gameScore.ToString("F2") + " meters";
+        }
 
         if (Input.GetKeyDown(KeyCode.P))
         {
