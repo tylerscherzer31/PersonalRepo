@@ -14,6 +14,7 @@ public class GameState : MonoBehaviour
     }
 
     public static float gameScore = 0;
+    public static int level = 1;
     public static GameMode mode = GameMode.idle;
 
 }

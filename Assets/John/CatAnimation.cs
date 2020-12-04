@@ -8,11 +8,14 @@ public class CatAnimation : MonoBehaviour
     private float speed = 10;
     private GameObject mouse;
     private Vector3[] offsets = {Vector3.right, Vector3.left, Vector3.forward };
+    private Color[] colors = { Color.black, Color.white, Color.gray, Color.yellow};
     private Vector3 setOffset;
     // Start is called before the first frame update
     void Start()
     {
         animator = GetComponent<Animator>();
+        //GetComponent<Renderer>().material.color = colors[Random.Range(0, colors.Length)];
+        GetComponentInChildren<SkinnedMeshRenderer>().material.color = colors[Random.Range(0, colors.Length)];
         animator.Play("Walk");
         mouse = GameObject.FindGameObjectWithTag("Player");
         setOffset = offsets[Random.Range(0,offsets.Length)];
@@ -36,7 +39,7 @@ public class CatAnimation : MonoBehaviour
             transform.LookAt(mouse.transform);
             if(transform.position.x == pos.x && transform.position.z == pos.z)
             {
-                print("eating");
+              
                 animator.Play("Eat");
             }
         }
