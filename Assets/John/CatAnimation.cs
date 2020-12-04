@@ -36,6 +36,8 @@ public class CatAnimation : MonoBehaviour
         {
             if (eating)
             {
+                Vector3 newPos = mouse.transform.position + Vector3.forward;
+                transform.position = newPos;
                 animator.Play("Eat");
             }
             else
