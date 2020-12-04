@@ -8,9 +8,12 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Tyler/StartMenu 1.unity
     guid: c98631dcbe0a6fe4ca6f22bf0680a77a
-  - enabled: 1
+  - enabled: 0
     path: Assets/John/JohnsScene.unity
     guid: b678675e5c0f44f0ab369a93748a3556
+  - enabled: 1
+    path: Assets/_FinishedGame/FinishedGameScene.unity
+    guid: 68841f844f83444cab05742ca636f427
   - enabled: 1
     path: Assets/Tyler/EndMenu.unity
     guid: 4d0c5eb8f57e3054abb6ed1191bf0e8a
