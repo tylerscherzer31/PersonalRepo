@@ -4,12 +4,15 @@ using UnityEngine;
 
 public class mouseRun : MonoBehaviour
 {
+    public GameObject bloodAndChuncks;
     private Animator m_animator;
     private bool gameStart = false;
+    private Rigidbody rigidbody;
     // Start is called before the first frame update
     void Start()
     {
         m_animator = GetComponent<Animator>();
+        rigidbody = GetComponent<Rigidbody>();
        
     }
 
@@ -25,6 +28,9 @@ public class mouseRun : MonoBehaviour
         }else if(GameState.mode == GameState.GameMode.dead)
         {
             m_animator.SetTrigger("dead");
+            rigidbody.isKinematic = true;
+            transform.rotation = Quaternion.Euler(new Vector3(-90, 180, 0));
+            bloodAndChuncks.SetActive(true);
         }
     }
 }
