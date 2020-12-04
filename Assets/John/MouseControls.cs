@@ -66,6 +66,7 @@ public class MouseControls : MonoBehaviour
         print(other.gameObject.tag);
         if(other.gameObject.tag == "cat")
         {
+            other.gameObject.GetComponent<CatAnimation>().eating = true;
             GameState.mode = GameState.GameMode.dead;
         }
     }

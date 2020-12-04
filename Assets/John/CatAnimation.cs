@@ -10,6 +10,7 @@ public class CatAnimation : MonoBehaviour
     private Vector3[] offsets = {Vector3.right, Vector3.left, Vector3.forward };
     private Color[] colors = { Color.black, Color.white, Color.gray, Color.yellow};
     private Vector3 setOffset;
+    public bool eating = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -33,15 +34,25 @@ public class CatAnimation : MonoBehaviour
             }
         }else if(GameState.mode == GameState.GameMode.dead)
         {
-            Vector3 pos = mouse.transform.position;
-            pos = pos + setOffset/2;
-            transform.position = Vector3.MoveTowards(transform.position, pos, Time.deltaTime * speed);
-            transform.LookAt(mouse.transform);
-            if(transform.position.x == pos.x && transform.position.z == pos.z)
+            if (eating)
             {
-              
                 animator.Play("Eat");
             }
+            else
+            {
+                animator.Play("Jump");
+            }
+            //Vector3 pos = mouse.transform.position;
+            //pos = pos + setOffset/2;
+            //transform.position = Vector3.MoveTowards(transform.position, pos, Time.deltaTime * speed);
+            //transform.LookAt(mouse.transform);
+            //if(transform.position.x == pos.x && transform.position.z == pos.z)
+            //{
+                
+            //        animator.Play("Eat");
+                
+
+            //}
         }
         
     }
