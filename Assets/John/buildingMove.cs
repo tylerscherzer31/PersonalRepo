@@ -14,11 +14,13 @@ public class buildingMove : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-       
-        transform.Translate(Vector3.back * speed * Time.deltaTime);
-        if(transform.position.z < -11f)
+        if (GameState.mode == GameState.GameMode.playing)
         {
-            transform.position = new Vector3(transform.position.x, transform.position.y, 15.12f);
+            transform.Translate(Vector3.back * speed * Time.deltaTime);
+            if (transform.position.z < -11f)
+            {
+                transform.position = new Vector3(transform.position.x, transform.position.y, 15.12f);
+            }
         }
 
     }
