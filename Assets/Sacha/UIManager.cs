@@ -8,7 +8,7 @@ public class UIManager : MonoBehaviour
 {
     public GameObject pauseScreen;
     public Text score;
-    public float scoreF = 0;
+   
     void Start()
     {
         
@@ -16,8 +16,8 @@ public class UIManager : MonoBehaviour
 
     void Update()
     {
-        scoreF += Time.deltaTime; 
-        score.text = "Score: " + scoreF.ToString("F2") + " meters";
+        GameState.gameScore += Time.deltaTime; 
+        score.text = "Score: " + GameState.gameScore.ToString("F2") + " meters";
 
         if (Input.GetKeyDown(KeyCode.P))
         {

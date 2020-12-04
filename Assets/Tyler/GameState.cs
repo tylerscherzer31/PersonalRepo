@@ -13,7 +13,7 @@ public class GameState : MonoBehaviour
         end
     }
 
-    public static int numLives = 3;
+    public static float gameScore = 0;
     public static GameMode mode = GameMode.idle;
 
 }
