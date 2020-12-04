@@ -2805,6 +2805,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pauseScreen: {fileID: 1552801178}
+  score: {fileID: 1833719672}
+  scoreF: 0
 --- !u!1001 &1158963057
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4445,7 +4447,7 @@ GameObject:
   - component: {fileID: 1833719673}
   - component: {fileID: 1833719672}
   m_Layer: 5
-  m_Name: Text
+  m_Name: Score
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
