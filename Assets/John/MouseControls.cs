@@ -8,9 +8,12 @@ public class MouseControls : MonoBehaviour
     public bool reset = true;
     public int positionIndex = 1;
     public bool gameStart = false;
+    public AudioClip mouseSqueak;
+    public AudioClip catSkreach;
+    private AudioSource audioSource;
     void Start()
     {
-        
+        audioSource = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -30,6 +33,7 @@ public class MouseControls : MonoBehaviour
                 {
                     positionIndex -= 1;
                     transform.position = positions[positionIndex].transform.position;
+                    audioSource.PlayOneShot(mouseSqueak);
                     reset = false;
 
                 }
@@ -45,6 +49,7 @@ public class MouseControls : MonoBehaviour
                 {
                     positionIndex += 1;
                     transform.position = positions[positionIndex].transform.position;
+                    audioSource.PlayOneShot(mouseSqueak);
                     reset = false;
 
                 }
@@ -68,6 +73,7 @@ public class MouseControls : MonoBehaviour
         {
             other.gameObject.GetComponent<CatAnimation>().eating = true;
             GameState.mode = GameState.GameMode.dead;
+            audioSource.PlayOneShot(catSkreach);
         }
     }
 }

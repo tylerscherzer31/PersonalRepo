@@ -6,15 +6,12 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Tyler/StartMenu 1.unity
-    guid: c98631dcbe0a6fe4ca6f22bf0680a77a
-  - enabled: 0
-    path: Assets/John/JohnsScene.unity
-    guid: b678675e5c0f44f0ab369a93748a3556
+    path: Assets/_FinishedGame/Start.unity
+    guid: f1bd266f6da0f431ea8f06c6d4463054
   - enabled: 1
     path: Assets/_FinishedGame/FinishedGameScene.unity
     guid: 68841f844f83444cab05742ca636f427
   - enabled: 1
-    path: Assets/Tyler/EndMenu.unity
-    guid: 4d0c5eb8f57e3054abb6ed1191bf0e8a
+    path: Assets/_FinishedGame/End.unity
+    guid: 748d86f036ff6412aabdc2644b97702b
   m_configObjects: {}
