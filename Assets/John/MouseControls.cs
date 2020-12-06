@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class MouseControls : MonoBehaviour
 {
@@ -74,6 +75,12 @@ public class MouseControls : MonoBehaviour
             other.gameObject.GetComponent<CatAnimation>().eating = true;
             GameState.mode = GameState.GameMode.dead;
             audioSource.PlayOneShot(catSkreach);
+            StartCoroutine(EndTheGame());
         }
+    }
+    IEnumerator EndTheGame()
+    {
+        yield return new WaitForSeconds(7);
+        SceneManager.LoadScene(2);
     }
 }
